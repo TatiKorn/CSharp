@@ -16,7 +16,7 @@ namespace CheckersGame
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
             // Step 2: Navigate to the website
-            driver.Navigate().GoToUrl("https://www.gamesforthebrain.com/game/checkers/");
+            driver.Url = "https://www.gamesforthebrain.com/game/checkers/";
 
             // Step 2: Confirm that the site is up
             if (driver.Title.Contains("Checkers"))

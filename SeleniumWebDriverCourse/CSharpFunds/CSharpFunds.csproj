@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Program2.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Program2.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Selenium.WebDriver" Version="4.12.4" />
   </ItemGroup>
 
