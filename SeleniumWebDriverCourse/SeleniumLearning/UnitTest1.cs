@@ -1,3 +1,5 @@
+using NUnit.Framework;
+
 namespace SeleniumLearning
 {
     public class Tests
