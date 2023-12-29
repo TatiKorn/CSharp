@@ -12,7 +12,6 @@ namespace SeleniumLearning
 
         [SetUp]
         public void StartBrowser()
-
         {
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
             driver = new ChromeDriver();
@@ -25,7 +24,6 @@ namespace SeleniumLearning
 
         [Test]
         public void EndToEndFlow()
-
         {
             string[] actualProducts = new string[2];
             driver.FindElement(By.Id("username")).SendKeys("rahulshettyacademy");
