@@ -5,32 +5,26 @@ namespace CSharpSeleniumFramework.PageObjects
 {
     public class CheckoutPage
     {
-        IWebDriver driver;
-        
+        private readonly IWebDriver _driver;
+
+        [FindsBy(How = How.CssSelector, Using = "h4 a")]
+        private IList<IWebElement> _checkoutCards;
+
+        [FindsBy(How = How.CssSelector, Using = ".btn-success")]
+        private IWebElement _checkoutButton;
+
         public CheckoutPage(IWebDriver driver)
         {
-            this.driver = driver;
+            _driver = driver;
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = "h4 a")]
-        private IList<IWebElement> checkoutCards;
+        public IList<IWebElement> GetCards => _checkoutCards;
 
-        [FindsBy(How = How.CssSelector, Using = ".btn-success")]
-        private IWebElement checkoutButton;
-
-
-        public IList<IWebElement> getCards()
-
+        public void CheckOut()
         {
-            return checkoutCards;
-        }
-
-        public void checkOut()
-        {
-            checkoutButton.Click();
-            //object of next page
-
+            _checkoutButton.Click();
+            // You might navigate to another page or perform further operations here
         }
     }
 }

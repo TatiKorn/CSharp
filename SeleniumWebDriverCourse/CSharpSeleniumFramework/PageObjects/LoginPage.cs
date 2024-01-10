@@ -5,44 +5,37 @@ namespace CSharpSeleniumFramework.PageObjects
 {
     public class LoginPage
     {
-        private IWebDriver driver;
+        private readonly IWebDriver _driver;
 
         public LoginPage(IWebDriver driver)
         {
-
-            this.driver = driver;
+            _driver = driver;
             PageFactory.InitElements(driver, this);
-
         }
 
         [FindsBy(How = How.Id, Using = "username")]
-        private IWebElement username;
+        private IWebElement _username { get; set; }
 
         [FindsBy(How = How.Name, Using = "password")]
-        private IWebElement password;
+        private IWebElement _password { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//div[@class='form-group'][5]/label/span/input")]
-        private IWebElement checkBox;
+        private IWebElement _checkBox { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "input[value='Sign In']")]
-        private IWebElement signInButton;
+        private IWebElement _signInButton { get; set; }
 
-
-        public ProductsPage validLogin(string user, string pass)
-
+        public ProductsPage ValidLogin(string userName, string password)
         {
-            username.SendKeys(user);
-            password.SendKeys(pass);
-            checkBox.Click();
-            signInButton.Click();
-            return new ProductsPage(driver);
+            _username.SendKeys(userName);
+            _password.SendKeys(password);
+            _checkBox.Click();
+            _signInButton.Click();
+            return new ProductsPage(_driver);
         }
 
-        public IWebElement getUserName()
-
-        {
-            return username;
-        }
+        public IWebElement Username => _username;
     }
 }
+
 
